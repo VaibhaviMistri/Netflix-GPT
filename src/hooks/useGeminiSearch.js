@@ -1,7 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { GEMINI_API_KEY } from "../utils/constants";
 
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export const getGeminiMovies = async (query) => {
   try {
