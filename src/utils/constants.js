@@ -27,4 +27,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" }
 ];
 
-export const GEMINI_API_KEY = "AIzaSyDgsBb00ZMn0eiWLlL4ikZBDRgZkiSmq2c";
+export const GEMINI_API_KEY = "AIzaSyC6tTORqmqmkXSqvRIeOgPBoxPMprsyPW4";

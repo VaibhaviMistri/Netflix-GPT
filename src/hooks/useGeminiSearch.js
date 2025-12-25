@@ -4,32 +4,28 @@ import { GEMINI_API_KEY } from "../utils/constants";
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 export const getGeminiMovies = async (query) => {
-    try {
-      
+  try {
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const prompt = `
-You are a movie recommendation system.
+You are a movie recommendation engine.
+
+Return exactly 10 movie titles for this query: "${query}"
 
 Rules:
-- Return ONLY movie names
-- Use real, popular movies available on TMDB
-- No numbering, no explanations
-- Return exactly 10 movie names
-- Separate each movie with a comma
-
-User query: "${query}"
+- Do NOT use bullet points
+- Do NOT number them
+- Do NOT use quotes
+- Do NOT use brackets
+- Return only comma separated movie names
+- Do NOT include any extra text"
 `;
 
     const result = await model.generateContent(prompt);
-    const text = result.response.text();
-
-      const movieNames = text.split(",").map((m) => m.trim()); // return array of movie names
-      
-        return movieNames;
-      
-      
-      
+    return result.response
+      .text()
+      .split(",")
+      .map((m) => m.trim());
   } catch (error) {
     console.error("Gemini error:", error);
     return [];
