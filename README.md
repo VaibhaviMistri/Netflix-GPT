@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# 🎬 Netflix GPT – AI Powered Movie Recommendation App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Netflix-inspired movie streaming application built using React, Redux, Firebase Authentication, TMDB API, and Google Gemini AI.
 
-## Available Scripts
+This project combines real-time movie data with AI-powered recommendations, allowing users to discover movies using natural language prompts.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Live Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🔐 Authentication (Firebase)
+- Sign Up / Sign In
+- Profile update (display name & photo)
+- Protected routes
+- Auto redirect based on auth state
+- Sign out functionality
+- Persistent login session
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### 🎥 Browse Page (Netflix UI Clone)
+- Fullscreen autoplay background trailer
+- Featured movie banner with title & overview
+- Multiple movie categories:
+  - Now Playing
+  - Popular
+  - Top Rated
+  - Upcoming
+- Smooth horizontal scroll movie rows
+- Clean Netflix-style UI using Tailwind CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### 🤖 AI Movie Recommendations (Gemini Powered)
+- Natural language movie search
+- Example:
+  > "Suggest 5 horror movies like The Conjuring"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Flow:
+  1. Gemini generates movie names
+  2. Movie names are sent to TMDB API
+  3. Posters are fetched dynamically
+  4. Results rendered with movie cards
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Redux state management for GPT results
+- Suggestions auto-clear when navigating away
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
+- React JS
+- React Router DOM
+- Redux Toolkit
+- Tailwind CSS
+- Axios
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### APIs & Services
+- Firebase Authentication
+- TMDB API (The Movie Database)
+- Google Gemini API (AI text generation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧠 Project Architecture
 
-## Learn More
+### Custom Hooks
+- useNowPlayingMovies
+- usePopularMovies
+- useTopRatedMovies
+- useUpcomingMovies
+- useMovieTrailer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Redux Slices
+- userSlice
+- moviesSlice
+- gptSlice
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Key Concepts Used
+- onAuthStateChanged with unsubscribe
+- Protected routing
+- Async API chaining (Gemini → TMDB)
+- Conditional rendering
+- Custom hooks abstraction
+- Global state management
+- Error handling & fallback logic
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🎨 UI Highlights
 
-### Analyzing the Bundle Size
+- Fullscreen hero trailer
+- Gradient overlays
+- Shimmer loading UI
+- Scrollbar hidden styling
+- Responsive layout
+- Clean component structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📦 Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+git clone https://github.com/VaibhaviMistri/Netflix-GPT.git
+cd netflix-gpt
+npm install
+npm start
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🔑 Environment Variables
+Create a .env file in the root directory:
+REACT_APP_GEMINI_API_KEY = your_gemini_api_key
+REACT_APP_FIREBASE_API_KEY = your_firebase_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN = your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID = your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET = your_firebase_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID = your_messaging_sender_id
+REACT_APP_FIREBASE_API_ID = your_firebase_api_key
+REACT_APP_FIREBASE_MEASUREMENT_ID = your_firebase_meaurement_id
+REACT_APP_TMDB_BEARER_TOKEN = your_tmbd_bearer_token

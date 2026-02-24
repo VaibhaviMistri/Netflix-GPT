@@ -16,15 +16,11 @@ const GPTSeachBar = () => {
   const handleSearch = async () => {
     const movieNames = await getGeminiMovies(query);
     
-    console.log(movieNames);
     // const movies = movieNames.split(",").map(m => m.trim());
 
     const tmdbResults = await Promise.all(
       movieNames.map((movie) => searchMovieTMDB(movie))
-    );
-
-    console.log(tmdbResults);
-    
+    );    
     
     dispatch(addGPTMovies({
       movieNames,

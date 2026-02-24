@@ -8,11 +8,11 @@ export const PROFILE_PHOTO =
   "https://tse1.mm.bing.net/th/id/OIP.u3aU45q2Pcum--knQuaiSwHaHa?pid=Api&P=0&h=180";
 
 export const API_OPTIONS = {
-  method: 'GET',
+  method: "GET",
   headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNDIyYzQ0NGM4NjFhMzI1ZWNiOTE0NDJiMmMwYTkyMyIsIm5iZiI6MTc1NzY1NTM2My4xOSwic3ViIjoiNjhjM2IxNDNjYjgyMmMwOWFjYmFjOTdiIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.0_leG1LnAxsH8YtFcXa95x8v1QpHVowy5VKtHaXSgfM'
-  }
+    accept: "application/json",
+    Authorization: `Bearer ${process.env.REACT_APP_TMDB_BEARER_TOKEN}`,
+  },
 };
 
 export const IMG_CDN_URL =
@@ -25,4 +25,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" }
-];
+]; 
