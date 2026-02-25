@@ -7,26 +7,25 @@ import { useEffect } from "react";
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
 
-  const getMovieVideos = async () => {
-    const data = await axios.get(
-      "https://api.themoviedb.org/3/movie/" +
-        movieId +
-        "/videos?language=en-US",
-      API_OPTIONS
-    );
-    let trailer = data?.data?.results.find(
-      (video) => video.name === "Official Trailer"
-    );
-
-    if (!trailer) {
-      trailer = data?.data?.results[0]; // fallback
-    }
-    dispatch(addTrailerVideo(trailer));
-    };
-    
   useEffect(() => {
+    const getMovieVideos = async () => {
+      const data = await axios.get(
+        "https://api.themoviedb.org/3/movie/" +
+          movieId +
+          "/videos?language=en-US",
+        API_OPTIONS,
+      );
+      let trailer = data?.data?.results.find(
+        (video) => video.name === "Official Trailer",
+      );
+
+      if (!trailer) {
+        trailer = data?.data?.results[0]; // fallback
+      }
+      dispatch(addTrailerVideo(trailer));
+    };
     getMovieVideos();
-  }, []);
+  }, [dispatch, movieId]);
 };
 
 export default useMovieTrailer;
